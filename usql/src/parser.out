@@ -1,0 +1,161 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ADD_COLUMN
+    ALTER_TABLE
+    ASTERISK
+    BETWEEN
+    CAST
+    COUNT
+    CREATE_TABLE
+    DEFAULT
+    DELETE_FROM
+    DISTINCT
+    DROP_COLUMN
+    DROP_TABLE
+    EXISTS
+    FOREIGN_KEY
+    FROM
+    GREATER_EQUAL
+    GROUP_BY
+    IN
+    INSERT_INTO
+    IS_NULL
+    JOIN
+    LESS_EQUAL
+    LIMIT
+    NOT_NULL
+    ON
+    ORDER_BY
+    PRIMARY_KEY
+    SELECT
+    SEMICOLON
+    SET
+    UNIQUE
+    UPDATE
+    VALUES
+    WHERE
+
+Grammar
+
+Rule 0     S' -> query
+Rule 1     query -> select_query
+Rule 2     query -> insert_query
+Rule 3     query -> update_query
+Rule 4     query -> delete_query
+Rule 5     query -> alter_query
+Rule 6     select_query -> TRAEME TODO DE_LA_TABLA table_name DONDE condition
+Rule 7     select_query -> TRAEME LOS_DISTINTOS column_name DE_LA_TABLA table_name DONDE condition
+Rule 8     select_query -> TRAEME CONTANDO LPAREN TODO RPAREN DE_LA_TABLA table_name AGRUPANDO_POR column_name HAVING condition
+Rule 9     insert_query -> METE_EN table_name LPAREN column_list RPAREN LOS_VALORES LPAREN value_list RPAREN
+Rule 10    update_query -> ACTUALIZA table_name SETEA column_name EQUAL value DONDE condition
+Rule 11    delete_query -> BORRA_DE_LA table_name DONDE condition
+Rule 12    alter_query -> CAMBIA_LA_TABLA table_name AGREGA_LA_COLUMNA column_name data_type NO_NULO
+Rule 13    alter_query -> CAMBIA_LA_TABLA table_name ELIMINA_LA_COLUMNA column_name
+Rule 14    table_name -> ID
+Rule 15    column_name -> ID
+Rule 16    column_list -> column_name COMMA column_list
+Rule 17    column_list -> column_name
+Rule 18    value_list -> value COMMA value_list
+Rule 19    value_list -> value
+Rule 20    value -> STRING
+Rule 21    value -> NUMBER
+Rule 22    condition -> expression
+Rule 23    condition -> expression AND condition
+Rule 24    expression -> column_name EQUAL value
+Rule 25    expression -> column_name GREATER value
+Rule 26    expression -> column_name LESS value
+Rule 27    expression -> column_name ENTRE value AND value
+Rule 28    expression -> column_name LIKE value
+Rule 29    data_type -> INTEGER
+Rule 30    data_type -> VARCHAR
+Rule 31    data_type -> FLOAT
+
+Terminals, with rules where they appear
+
+ADD_COLUMN           : 
+ALTER_TABLE          : 
+AND                  : 23 27
+ASTERISK             : 
+BETWEEN              : 
+CAST                 : 
+COMMA                : 16 18
+COUNT                : 
+CREATE_TABLE         : 
+DEFAULT              : 
+DELETE_FROM          : 
+DISTINCT             : 
+DROP_COLUMN          : 
+DROP_TABLE           : 
+EQUAL                : 10 24
+EXISTS               : 
+FOREIGN_KEY          : 
+FROM                 : 
+GREATER              : 25
+GREATER_EQUAL        : 
+GROUP_BY             : 
+HAVING               : 8
+ID                   : 14 15
+IN                   : 
+INSERT_INTO          : 
+IS_NULL              : 
+JOIN                 : 
+LESS                 : 26
+LESS_EQUAL           : 
+LIKE                 : 28
+LIMIT                : 
+LPAREN               : 8 9 9
+NOT_NULL             : 
+NUMBER               : 21
+ON                   : 
+ORDER_BY             : 
+PRIMARY_KEY          : 
+RPAREN               : 8 9 9
+SELECT               : 
+SEMICOLON            : 
+SET                  : 
+STRING               : 20
+UNIQUE               : 
+UPDATE               : 
+VALUES               : 
+WHERE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+ACTUALIZA            : 10
+AGREGA_LA_COLUMNA    : 12
+AGRUPANDO_POR        : 8
+BORRA_DE_LA          : 11
+CAMBIA_LA_TABLA      : 12 13
+CONTANDO             : 8
+DE_LA_TABLA          : 6 7 8
+DONDE                : 6 7 10 11
+ELIMINA_LA_COLUMNA   : 13
+ENTRE                : 27
+FLOAT                : 31
+INTEGER              : 29
+LOS_DISTINTOS        : 7
+LOS_VALORES          : 9
+METE_EN              : 9
+NO_NULO              : 12
+SETEA                : 10
+TODO                 : 6 8
+TRAEME               : 6 7 8
+VARCHAR              : 30
+alter_query          : 5
+column_list          : 9 16
+column_name          : 7 8 10 12 13 16 17 24 25 26 27 28
+condition            : 6 7 8 10 11 23
+data_type            : 12
+delete_query         : 4
+expression           : 22 23
+insert_query         : 2
+query                : 0
+select_query         : 1
+table_name           : 6 7 8 9 10 11 12 13
+update_query         : 3
+value                : 10 18 19 24 25 26 27 27 28
+value_list           : 9 18
+
