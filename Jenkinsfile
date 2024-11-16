@@ -10,6 +10,8 @@ pipeline {
             steps {
                 script {
                     dockerImage = docker.build("nombre_imagen_docker:${env.BUILD_ID}")
+                    // Usa 'bat' para ejecutar comandos en Windows
+                    bat 'docker build -t nombre_imagen_docker:${env.BUILD_ID} .'
                 }
             }
         }
